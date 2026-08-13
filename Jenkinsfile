@@ -26,6 +26,12 @@ pipeline {
                 bat 'mvn package -DskipTests'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                bat 'java -jar target\\java-cicd-1.0.jar'
+            }
+        }
     }
 
     post {
@@ -38,5 +44,4 @@ pipeline {
         }
     }
 }
-
 
